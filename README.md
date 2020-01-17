@@ -23,12 +23,7 @@ However please be aware that it might take some time to get an answer.
 
 If you need **immediate** or **commercial** support, feel free to send me a mail at github@webklex.com. 
 
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
 ## Security
-
 If you discover any security related issues, please email github@webklex.com instead of using the issue tracker.
 
 ## Credits
