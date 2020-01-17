@@ -3,7 +3,7 @@
 
 GoGeoIP - a lightweight geoip api written in GO. [Live Demo](https://www.gogeoip.com/)
 
-![geo_ip_web_gui](https://raw.githubusercontent.com/webklex/gogeoip-gui-gui/master/geo_ip_web_gui.jpg)
+![geo_ip_web_gui](https://raw.githubusercontent.com/webklex/gogeoip-gui/master/geo_ip_web_gui.jpg)
 
 ## Installation & Setup
 Head over to the main repository [webklex/gogeoip](https://github.com/webklex/gogeoip#installation) for details.
