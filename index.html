@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <title>GeoIP Web GUI</title>
+    <title>GoGeoIP Web GUI</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,7 +23,7 @@
 <body class="bg-light">
 <div class="container-fluid p-md-5">
     <div class="py-5 text-center">
-        <h2>GeoIP Web Gui Example</h2>
+        <h2>GoGeoIP Web Gui Example</h2>
         <p class="lead">
             This is a demo app, made to give an impression on how you might interact with parts of the provided api.
         </p>
@@ -140,6 +140,68 @@
                     <td><small class="text-muted">metro_code</small></td>
                     <td id="result-metro_code"></td>
                 </tr>
+
+                <tr>
+                    <td><h6 class="my-0">Language</h6></td>
+                    <td><small class="text-muted">user.language.language</small></td>
+                    <td id="result-user-language-language"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Region</h6></td>
+                    <td><small class="text-muted">user.language.region</small></td>
+                    <td id="result-user-language-region"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Tag</h6></td>
+                    <td><small class="text-muted">user.language.tag</small></td>
+                    <td id="result-user-language-tag"></td>
+                </tr>
+
+                <tr>
+                    <td><h6 class="my-0">OS</h6></td>
+                    <td><small class="text-muted">user.system.os</small></td>
+                    <td id="result-user-system-os"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">OS Version</h6></td>
+                    <td><small class="text-muted">user.system.os_version</small></td>
+                    <td id="result-user-system-os_version"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Browser</h6></td>
+                    <td><small class="text-muted">user.system.browser</small></td>
+                    <td id="result-user-system-browser"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Version</h6></td>
+                    <td><small class="text-muted">user.system.version</small></td>
+                    <td id="result-user-system-version"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Device</h6></td>
+                    <td><small class="text-muted">user.system.device</small></td>
+                    <td id="result-user-system-device"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Mobile</h6></td>
+                    <td><small class="text-muted">user.system.mobile</small></td>
+                    <td id="result-user-system-mobile"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Tablet</h6></td>
+                    <td><small class="text-muted">user.system.tablet</small></td>
+                    <td id="result-user-system-tablet"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Desktop</h6></td>
+                    <td><small class="text-muted">user.system.desktop</small></td>
+                    <td id="result-user-system-desktop"></td>
+                </tr>
+                <tr>
+                    <td><h6 class="my-0">Bot</h6></td>
+                    <td><small class="text-muted">user.system.bot</small></td>
+                    <td id="result-user-system-bot"></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -245,11 +307,14 @@
             })();
         }
 
-        function call(ip){
-            jQuery.get( "json/"+ip, function( data ) {
-                jQuery.each(data, function(key, value) {
+        function renderObject(prefix, obj){
+            console.log(prefix)
+            jQuery.each(obj, function(key, value) {
+                if (typeof value === "object") {
+                    renderObject(prefix + "-"+key, value);
+                }else{
                     try {
-                        let result = jQuery('#result-'+key);
+                        let result = jQuery('#'+prefix+'-'+key);
                         result.text(value);
                         if (value !== "" && value !== null && typeof value !== "undefined") {
                             result.addClass("text-success");
@@ -257,7 +322,13 @@
                             result.removeClass("text-success");
                         }
                     } catch (e) {}
-                });
+                }
+            });
+        }
+
+        function call(ip){
+            jQuery.get( "json/"+ip+"?user", function( data ) {
+                renderObject("result", data);
                 try {
                     draw_map(data.longitude, data.latitude)
                 } catch (e) {}
