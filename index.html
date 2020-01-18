@@ -30,31 +30,26 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-8 order-sm-2 order-md-2 order-lg-1">
-            <h4 class="mb-3">Map Location</h4>
-
-            <div class="row">
-                <div id="map" style="height: 600px; width: 100%;" class="col-lg-12"></div>
-
-                <div class="col-lg-12 pt-2 text-left text-muted">
-                    &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" class="text-muted">OpenStreetMap</a> contributors
-                </div>
-            </div>
-        </div>
         <div class="col-lg-4 order-sm-1 order-md-1 order-lg-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span>Result</span>
-                <span class="badge badge-primary badge-pill">14</span>
+                <span class="badge badge-success badge-pill">14</span>
             </h4>
 
-            <form class="card p-2">
+            <form class="">
                 <div class="input-group">
                     <input type="text" class="form-control" id="ip_address-input" placeholder="IP Address or Host">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary" id="search-button">Check</button>
+                        <button type="button" class="btn btn-outline-primary" id="search-button">Check</button>
                     </div>
                 </div>
             </form>
+
+            <div class="my-2">
+                <a href="/json?user" target="_blank" class="btn btn-outline-dark">JSON Result</a>
+                <a href="/xml?user" target="_blank" class="btn btn-outline-dark">XML Result</a>
+                <a href="/csv?user" target="_blank" class="btn btn-outline-dark">CSV Result</a>
+            </div>
 
             <table class="table table-striped col-12">
                 <thead>
@@ -199,6 +194,17 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="col-lg-8 order-sm-2 order-md-2 order-lg-1">
+            <h4 class="mb-3">Map Location</h4>
+
+            <div class="row">
+                <div id="map" style="height: 600px; width: 100%;" class="col-lg-12"></div>
+
+                <div class="col-lg-12 pt-2 text-left text-muted">
+                    &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" class="text-muted">OpenStreetMap</a> contributors
+                </div>
+            </div>
         </div>
     </div>
 
