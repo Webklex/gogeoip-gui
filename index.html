@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 </head>
 
 <body class="bg-light">
@@ -303,79 +304,58 @@
 <script type="text/javascript">
     (function(){
 
+        let attribution = new ol.control.Attribution({
+            collapsible: false
+        });
+
+        var map = new ol.Map({
+            controls: ol.control.defaults({attribution: false}).extend([attribution]),
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            target: 'map'
+        });
+
         function draw_map(longitude, latitude){
 
-            jQuery('#map').html("");
-
-            var map = new OpenLayers.Map("map");
-            var mapnik = new OpenLayers.Layer.OSM();
-
-            map.addLayer(mapnik);
-
-            var overlays = new OpenLayers.Layer.Vector("Overlay");
-            var markers = new OpenLayers.Layer.Markers( "Markers" );
-            map.addLayer(markers);
-
-            var icon_str = "data:image/png;base64,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";
-
-            var size = new OpenLayers.Size(30,30);
-            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-
-            var icon = new OpenLayers.Icon(icon_str, size, offset);
-            var title = 'sample';
-
-            var lonLat = new OpenLayers.LonLat(longitude, latitude)
-                .transform(
-                    new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                    map.getProjectionObject() // to Spherical Mercator Projection
-                );
-
-            var description = 'longitude: '+longitude+'<br />latitude: ' + latitude;
-
-            //var marker = new OpenLayers.Marker(lonLat, icon.clone());
-            var feature = new OpenLayers.Feature.Vector(
-                new OpenLayers.Geometry.Point( longitude, latitude  ).transform(
-                    new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                    map.getProjectionObject() // to Spherical Mercator Projection
-                ),
-                {description: description} ,
-                {externalGraphic: icon_str, graphicHeight: size.w, graphicWidth: size.h, graphicXOffset: -(size.w/2), graphicYOffset:-size.h  }
-            );
-            overlays.addFeatures(feature);
-
-            map.addLayer(overlays);
-
-            map.setCenter (lonLat, 10);
-            //Add a selector control to the vectorLayer with popup functions
-            var controls = {
-                selector: new OpenLayers.Control.SelectFeature(overlays, { onSelect: createPopup, onUnselect: destroyPopup })
-            };
-
-            function createPopup(feature) {
-                feature.popup = new OpenLayers.Popup.FramedCloud("pop",
-                    feature.geometry.getBounds().getCenterLonLat(),
-                    null,
-                    '<div class="markerContent" style="white-space: nowrap; overflow-y: hidden !important;">'+feature.attributes.description+'</div>',
-                    null,
-                    true,
-                    function() { controls['selector'].unselectAll(); }
-                );
-                //feature.popup.closeOnMove = true;
-                map.addPopup(feature.popup);
+            if (longitude === latitude && latitude === 0) {
+                longitude = 4.35247;
+                latitude = 50.84673;
             }
 
-            function destroyPopup(feature) {
-                feature.popup.destroy();
-                feature.popup = null;
-            }
+            let iconFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude])),
+                name: 'Position',
+                population: 4000,
+                rainfall: 500
+            });
+            let iconStyle = new ol.style.Style({
+                image: new ol.style.Icon(({
+                    anchor: [0.5, 0.5],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    scale: .2,
+                    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/156px-Map_marker.svg.png'
+                }))
+            });
+            iconFeature.setStyle(iconStyle);
 
-            map.addControl(controls['selector']);
-            controls['selector'].activate();
+            let layer = new ol.layer.Vector({
+                source: new ol.source.Vector({
+                    features: [iconFeature]
+                })
+            });
+            map.addLayer(layer);
 
+            map.setView(new ol.View({
+                center: ol.proj.fromLonLat([longitude, latitude]),
+                //maxZoom: 18,
+                zoom: 12
+            }));
 
-            (function(){
-                document.getElementById("OpenLayers_Control_Attribution_7").remove();
-            })();
+            map.render();
         }
 
         function renderObject(prefix, obj){
@@ -409,6 +389,7 @@
         jQuery('#search-button').bind('click', function () {
             let ip = jQuery('#ip_address-input').val();
             call(ip)
+
         });
 
         call("")
