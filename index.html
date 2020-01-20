@@ -44,227 +44,305 @@
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-12 mt-2 text-md-center text-xl-left">
-                    <a href="/json?user" target="_blank" class="btn btn-outline-dark">JSON Result</a>
-                    <a href="/xml?user" target="_blank" class="btn btn-outline-dark">XML Result</a>
-                    <a href="/csv?user" target="_blank" class="btn btn-outline-dark">CSV Result</a>
+                    <a href="/json?user" target="_blank" id="target-result-link-json" class="btn btn-outline-dark">JSON Result</a>
+                    <a href="/xml?user" target="_blank" id="target-result-link-xml" class="btn btn-outline-dark">XML Result</a>
+                    <a href="/csv?user" target="_blank" id="target-result-link-csv" class="btn btn-outline-dark">CSV Result</a>
                 </div>
             </div>
         </form>
     </div>
     <div class="row">
         <div class="col-lg-4 order-sm-0 order-md-0 order-lg-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span>Result</span>
-                <span class="badge badge-success badge-pill">18</span>
-            </h4>
+            <div class="row">
+                <div class="col-lg-12 order-sm-0 order-md-0 order-lg-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span>Network</span>
+                        <span class="badge badge-success badge-pill">12</span>
+                    </h4>
 
-            <table class="table table-striped col-12">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Key</th>
-                    <th>Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><h6 class="my-0">IP address</h6></td>
-                    <td><small class="text-muted">ip</small></td>
-                    <td id="result-ip"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">ISP</h6></td>
-                    <td><small class="text-muted">isp</small></td>
-                    <td id="result-isp"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Domain</h6></td>
-                    <td><small class="text-muted">domain</small></td>
-                    <td id="result-domain"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">ASN</h6></td>
-                    <td><small class="text-muted">asn.asn</small></td>
-                    <td id="result-asn-asn"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">ASO</h6></td>
-                    <td><small class="text-muted">asn.aso</small></td>
-                    <td id="result-asn-aso"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">In European Union</h6></td>
-                    <td><small class="text-muted">is_in_european_union</small></td>
-                    <td id="result-is_in_european_union"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Continent Code</h6></td>
-                    <td><small class="text-muted">continent_code</small></td>
-                    <td id="result-continent_code"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Country Code</h6></td>
-                    <td><small class="text-muted">country_code</small></td>
-                    <td id="result-country_code"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Country Name</h6></td>
-                    <td><small class="text-muted">country_name</small></td>
-                    <td id="result-country_name"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Region Code</h6></td>
-                    <td><small class="text-muted">region_code</small></td>
-                    <td id="result-region_code"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Region Name</h6></td>
-                    <td><small class="text-muted">region_name</small></td>
-                    <td id="result-region_name"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">City</h6></td>
-                    <td><small class="text-muted">city</small></td>
-                    <td id="result-city"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Zip Code</h6></td>
-                    <td><small class="text-muted">zip_code</small></td>
-                    <td id="result-zip_code"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Time Zone</h6></td>
-                    <td><small class="text-muted">time_zone</small></td>
-                    <td id="result-time_zone"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Latitude</h6></td>
-                    <td><small class="text-muted">latitude</small></td>
-                    <td id="result-latitude"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Longitude</h6></td>
-                    <td><small class="text-muted">longitude</small></td>
-                    <td id="result-longitude"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Accuracy Radius</h6></td>
-                    <td><small class="text-muted">accuracy_radius</small></td>
-                    <td id="result-accuracy_radius"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Metro Code</h6></td>
-                    <td><small class="text-muted">metro_code</small></td>
-                    <td id="result-metro_code"></td>
-                </tr>
-                </tbody>
-            </table>
+                    <table class="table table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h6 class="my-0">IP address</h6></td>
+                            <td id="result-network-ip"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">ASN</h6></td>
+                            <td id="result-network-as-number"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">AS Name</h6></td>
+                            <td id="result-network-as-name"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">ISP</h6></td>
+                            <td id="result-network-isp"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Domain</h6></td>
+                            <td id="result-network-domain"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">TLD</h6></td>
+                            <td id="result-network-tld-0"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Bot</h6></td>
+                            <td id="result-network-bot"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Tor</h6></td>
+                            <td id="result-network-tor"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Proxy</h6></td>
+                            <td id="result-network-proxy"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Proxy type</h6></td>
+                            <td id="result-network-proxy_type"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Last seen</h6></td>
+                            <td id="result-network-last_seen"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Usage type</h6></td>
+                            <td id="result-network-usage_type"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12 order-sm-1 order-md-1 order-lg-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span>System</span>
+                        <span class="badge badge-success badge-pill">8</span>
+                    </h4>
+
+                    <table class="table table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h6 class="my-0">OS</h6></td>
+                            <td id="result-system-os"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">OS Version</h6></td>
+                            <td id="result-system-os_version"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Browser</h6></td>
+                            <td id="result-system-browser"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Version</h6></td>
+                            <td id="result-system-version"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Device</h6></td>
+                            <td id="result-system-device"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Mobile</h6></td>
+                            <td id="result-system-mobile"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Tablet</h6></td>
+                            <td id="result-system-tablet"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Desktop</h6></td>
+                            <td id="result-system-desktop"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12 order-sm-1 order-md-1 order-lg-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span>User</span>
+                        <span class="badge badge-success badge-pill">3</span>
+                    </h4>
+
+                    <table class="table table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h6 class="my-0">Language</h6></td>
+                            <td id="result-user-language-language"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Region</h6></td>
+                            <td id="result-user-language-region"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Tag</h6></td>
+                            <td id="result-user-language-tag"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 order-sm-1 order-md-1 order-lg-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span>User</span>
-                <span class="badge badge-success badge-pill">17</span>
-            </h4>
+        <div class="col-lg-4 order-sm-0 order-md-0 order-lg-2 mb-4">
+            <div class="row">
+                <div class="col-lg-12 order-sm-0 order-md-0 order-lg-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span>Location</span>
+                        <span class="badge badge-success badge-pill">9</span>
+                    </h4>
 
-            <table class="table table-striped col-12">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Key</th>
-                    <th>Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><h6 class="my-0">Language</h6></td>
-                    <td><small class="text-muted">user.language.language</small></td>
-                    <td id="result-user-language-language"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Region</h6></td>
-                    <td><small class="text-muted">user.language.region</small></td>
-                    <td id="result-user-language-region"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Tag</h6></td>
-                    <td><small class="text-muted">user.language.tag</small></td>
-                    <td id="result-user-language-tag"></td>
-                </tr>
+                    <table class="table table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h6 class="my-0">Region Code</h6></td>
+                            <td id="result-location-region_code"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Region Name</h6></td>
+                            <td id="result-location-region_name"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">City</h6></td>
+                            <td id="result-location-city"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Zip Code</h6></td>
+                            <td id="result-location-zip_code"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Time Zone</h6></td>
+                            <td id="result-location-time_zone"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Latitude</h6></td>
+                            <td id="result-location-latitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Longitude</h6></td>
+                            <td id="result-location-longitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Accuracy Radius</h6></td>
+                            <td id="result-location-accuracy_radius"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Metro Code</h6></td>
+                            <td id="result-location-metro_code"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12 order-sm-1 order-md-1 order-lg-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span>Country</span>
+                        <span class="badge badge-success badge-pill">17</span>
+                    </h4>
 
-                <tr>
-                    <td><h6 class="my-0">OS</h6></td>
-                    <td><small class="text-muted">user.system.os</small></td>
-                    <td id="result-user-system-os"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">OS Version</h6></td>
-                    <td><small class="text-muted">user.system.os_version</small></td>
-                    <td id="result-user-system-os_version"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Browser</h6></td>
-                    <td><small class="text-muted">user.system.browser</small></td>
-                    <td id="result-user-system-browser"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Version</h6></td>
-                    <td><small class="text-muted">user.system.version</small></td>
-                    <td id="result-user-system-version"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Device</h6></td>
-                    <td><small class="text-muted">user.system.device</small></td>
-                    <td id="result-user-system-device"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Mobile</h6></td>
-                    <td><small class="text-muted">user.system.mobile</small></td>
-                    <td id="result-user-system-mobile"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Tablet</h6></td>
-                    <td><small class="text-muted">user.system.tablet</small></td>
-                    <td id="result-user-system-tablet"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Desktop</h6></td>
-                    <td><small class="text-muted">user.system.desktop</small></td>
-                    <td id="result-user-system-desktop"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Bot</h6></td>
-                    <td><small class="text-muted">user.system.bot</small></td>
-                    <td id="result-user-system-bot"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Tor</h6></td>
-                    <td><small class="text-muted">user.system.tor</small></td>
-                    <td id="result-user-system-tor"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Proxy</h6></td>
-                    <td><small class="text-muted">user.system.proxy</small></td>
-                    <td id="result-user-system-proxy"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Proxy type</h6></td>
-                    <td><small class="text-muted">user.system.proxy_type</small></td>
-                    <td id="result-user-system-proxy_type"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Last seen</h6></td>
-                    <td><small class="text-muted">user.system.last_seen</small></td>
-                    <td id="result-user-system-last_seen"></td>
-                </tr>
-                <tr>
-                    <td><h6 class="my-0">Usage type</h6></td>
-                    <td><small class="text-muted">user.system.usage_type</small></td>
-                    <td id="result-user-system-usage_type"></td>
-                </tr>
-                </tbody>
-            </table>
+                    <table class="table table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td><h6 class="my-0">Country Code</h6></td>
+                            <td id="result-location-country-code"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">CIOC</h6></td>
+                            <td id="result-location-country-cioc"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">CCN3</h6></td>
+                            <td id="result-location-country-ccn3"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Call code</h6></td>
+                            <td id="result-location-country-call_code-0"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">International prefix</h6></td>
+                            <td id="result-location-country-international_prefix"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Capital</h6></td>
+                            <td id="result-location-country-capital"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Country Name</h6></td>
+                            <td id="result-location-country-name"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Full country name</h6></td>
+                            <td id="result-location-country-full_name"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Area in km²</h6></td>
+                            <td id="result-location-country-area"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Borders</h6></td>
+                            <td id="result-location-country-borders-0"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Latitude</h6></td>
+                            <td id="result-location-country-latitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Longitude</h6></td>
+                            <td id="result-location-country-longitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Max latitude</h6></td>
+                            <td id="result-location-country-max_latitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Max longitude</h6></td>
+                            <td id="result-location-country-max_longitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Min latitude</h6></td>
+                            <td id="result-location-country-min_latitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Min longitude</h6></td>
+                            <td id="result-location-country-min_longitude"></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="my-0">Continent</h6></td>
+                            <td id="result-location-country-continent-name"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 order-sm-2 order-md-2 order-lg-1">
+
+        <!-- MAP -->
+        <div class="col-lg-4 order-sm-1 order-md-1 order-lg-0">
             <h4 class="mb-3">Map Location</h4>
             <div class="row">
                 <div id="map" style="height: 600px; width: 100%;" class="col-lg-12"></div>
@@ -363,6 +441,9 @@
                 if (typeof value === "object") {
                     renderObject(prefix + "-"+key, value);
                 }else{
+                    if (Array.isArray(value)) {
+                        value = value.join("/");
+                    }
                     try {
                         let result = jQuery('#'+prefix+'-'+key);
                         result.text(value);
@@ -380,15 +461,19 @@
             jQuery.get( "json/"+ip+"?user", function( data ) {
                 renderObject("result", data);
                 try {
-                    draw_map(data.longitude, data.latitude);
-                    jQuery('#ip_address-input').val(data.ip)
+                    draw_map(data.location.longitude, data.location.latitude);
+                    jQuery('#ip_address-input').val(data.network.ip)
                 } catch (e) {}
             });
         }
 
         jQuery('#search-button').bind('click', function () {
             let ip = jQuery('#ip_address-input').val();
-            call(ip)
+            call(ip);
+
+            jQuery('#target-result-link-json').attr("href", "/json/" + ip + "?user");
+            jQuery('#target-result-link-csv').attr("href", "/csv/" + ip + "?user");
+            jQuery('#target-result-link-xml').attr("href", "/xml/" + ip + "?user");
 
         });
 
